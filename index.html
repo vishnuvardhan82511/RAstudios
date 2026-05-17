@@ -79,33 +79,22 @@
         .animate-bg {
             animation: subtleZoom 30s infinite alternate ease-in-out;
         }
-
-        /* Intro Screen Animations */
-        #intro-screen {
-            transition: opacity 1s cubic-bezier(0.65, 0, 0.35, 1);
-        }
-        .intro-logo {
-            animation: logoReveal 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        @keyframes logoReveal {
-            0% { opacity: 0; transform: scale(0.95); filter: blur(4px); }
-            40% { opacity: 1; filter: blur(0px); }
-            100% { transform: scale(1.02); }
-        }
     </style>
 </head>
 <body class="antialiased selection:bg-arch-accent selection:text-black">
 
     <!-- Intro Preloader -->
     <div id="intro-screen" class="fixed inset-0 z-[100] flex items-center justify-center bg-white pointer-events-auto">
-        <img src="www.rastudios.in.png" onerror="this.onerror=null; this.src='https://placehold.co/600x400/ffffff/0a0a0a?text=RA+STUDIOS&font=Inter'" alt="RA Studios Intro Logo" class="intro-logo w-64 md:w-96 object-contain">
+        <div id="intro-logo" class="text-5xl md:text-7xl font-black tracking-tighter uppercase text-arch-black opacity-0 transform scale-90 will-change-transform">
+            RA<span class="text-arch-accent">.</span>Studios
+        </div>
     </div>
 
     <!-- Navigation -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 px-6 md:px-12 bg-transparent">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <!-- Logo -->
-            <a href="#home" class="text-2xl font-black tracking-tighter uppercase z-50 relative text-white">
+            <a href="#home" id="navbar-logo" class="text-2xl font-black tracking-tighter uppercase z-50 relative text-white transition-opacity duration-300">
                 RA<span class="text-arch-accent">.</span>Studios
             </a>
 
@@ -404,19 +393,55 @@
 
     <!-- JavaScript for Interactions -->
     <script>
-        // Intro Screen Animation
+        // Smooth Premium Intro Animation (Move to top-left)
         window.addEventListener('load', () => {
             const introScreen = document.getElementById('intro-screen');
-            // Wait 2 seconds to showcase the logo, then fade it out
+            const introLogo = document.getElementById('intro-logo');
+            const navbarLogo = document.getElementById('navbar-logo');
+
+            // 1. Hide the real navbar logo initially
+            navbarLogo.style.opacity = '0';
+            
+            // 2. Fade in the big center logo smoothly
             setTimeout(() => {
-                introScreen.style.opacity = '0';
-                introScreen.style.pointerEvents = 'none'; // Prevent clicking on invisible overlay
+                introLogo.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                introLogo.style.opacity = '1';
+                introLogo.style.transform = 'scale(1)';
+            }, 100); // Tiny delay to ensure browser paints initial state
+
+            // 3. Wait, then calculate exact positions and fly to the top left
+            setTimeout(() => {
+                // Get exact dimensions and coordinates on the user's specific screen
+                const targetRect = navbarLogo.getBoundingClientRect();
+                const introRect = introLogo.getBoundingClientRect();
+
+                // Calculate center points to move accurately
+                const targetCenterX = targetRect.left + targetRect.width / 2;
+                const targetCenterY = targetRect.top + targetRect.height / 2;
+                const introCenterX = introRect.left + introRect.width / 2;
+                const introCenterY = introRect.top + introRect.height / 2;
+
+                // Calculate how far to move (Delta X and Y) and how much to shrink (Scale)
+                const dX = targetCenterX - introCenterX;
+                const dY = targetCenterY - introCenterY;
+                const scale = targetRect.width / introRect.width;
+
+                // Apply the flight animation
+                introLogo.style.transition = 'transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), color 1.2s cubic-bezier(0.77, 0, 0.175, 1)';
+                introLogo.style.transform = `translate(${dX}px, ${dY}px) scale(${scale})`;
+                introLogo.style.color = '#ffffff'; // Change text to white during flight
                 
-                // Remove from DOM after fade out completes
+                // Fade out the white background simultaneously
+                introScreen.style.transition = 'background-color 1.2s cubic-bezier(0.77, 0, 0.175, 1)';
+                introScreen.style.backgroundColor = 'rgba(255, 255, 255, 0)';
+
+                // 4. Clean up: Reveal real logo, hide the intro overlay entirely
                 setTimeout(() => {
+                    navbarLogo.style.opacity = '1';
                     introScreen.style.display = 'none';
-                }, 1000); 
-            }, 2000); 
+                }, 1200); // Wait for the 1.2s animation to finish
+
+            }, 1800); // Wait 1.8 seconds looking at the center logo before flying
         });
 
         // Navbar Background Change on Scroll
