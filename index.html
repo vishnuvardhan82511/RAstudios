@@ -79,9 +79,27 @@
         .animate-bg {
             animation: subtleZoom 30s infinite alternate ease-in-out;
         }
+
+        /* Intro Screen Animations */
+        #intro-screen {
+            transition: opacity 1s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+        .intro-logo {
+            animation: logoReveal 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes logoReveal {
+            0% { opacity: 0; transform: scale(0.95); filter: blur(4px); }
+            40% { opacity: 1; filter: blur(0px); }
+            100% { transform: scale(1.02); }
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-arch-accent selection:text-black">
+
+    <!-- Intro Preloader -->
+    <div id="intro-screen" class="fixed inset-0 z-[100] flex items-center justify-center bg-white pointer-events-auto">
+        <img src="www.rastudios.in.png" alt="RA Studios Intro Logo" class="intro-logo w-64 md:w-96 object-contain">
+    </div>
 
     <!-- Navigation -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 px-6 md:px-12 bg-transparent">
@@ -386,6 +404,21 @@
 
     <!-- JavaScript for Interactions -->
     <script>
+        // Intro Screen Animation
+        window.addEventListener('load', () => {
+            const introScreen = document.getElementById('intro-screen');
+            // Wait 2 seconds to showcase the logo, then fade it out
+            setTimeout(() => {
+                introScreen.style.opacity = '0';
+                introScreen.style.pointerEvents = 'none'; // Prevent clicking on invisible overlay
+                
+                // Remove from DOM after fade out completes
+                setTimeout(() => {
+                    introScreen.style.display = 'none';
+                }, 1000); 
+            }, 2000); 
+        });
+
         // Navbar Background Change on Scroll
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
