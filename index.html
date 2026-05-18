@@ -20,11 +20,12 @@
                         sans: ['Inter', 'sans-serif'],
                     },
                     colors: {
-                        'arch-black': '#1e1c1a', // Rich, warm dark umber (replaces harsh black)
-                        'arch-dark': '#2a2724',  // Deep warm taupe
-                        'arch-gray': '#a8a39d',  // Warm muted gray for text
-                        'arch-accent': '#d4af37', // Classic architectural gold (slightly brighter to attract)
-                        'arch-border': '#3d3935', // Warm border color
+                        'arch-bg-main': '#faf9f6', // Bright, airy off-white
+                        'arch-bg-alt': '#f0ede6',  // Soft cream for contrast sections
+                        'arch-text-main': '#2d2a26', // Dark charcoal for high contrast text
+                        'arch-text-muted': '#7a7571', // Mid-tone gray for paragraph text
+                        'arch-accent': '#c09b5a', // Warm architectural gold
+                        'arch-border': '#e5e0d8', // Soft subtle borders
                     }
                 }
             }
@@ -34,8 +35,8 @@
     <style>
         /* Custom Styles & Animations */
         body {
-            background-color: #1e1c1a;
-            color: #ffffff;
+            background-color: #faf9f6;
+            color: #2d2a26;
             overflow-x: hidden;
         }
         
@@ -52,7 +53,7 @@
         }
 
         .project-card:hover .project-overlay {
-            background: linear-gradient(to top, rgba(30,28,26,0.9) 0%, rgba(30,28,26,0.1) 100%);
+            background: linear-gradient(to top, rgba(45,42,38,0.9) 0%, rgba(45,42,38,0.1) 100%);
         }
 
         .project-image-container {
@@ -71,71 +72,72 @@
 </head>
 <body class="antialiased selection:bg-arch-accent selection:text-white">
 
-    <div id="intro-screen" class="fixed inset-0 z-[100] flex items-center justify-center bg-[#f4f0ec] pointer-events-auto">
-        <div id="intro-logo" class="text-5xl md:text-7xl font-black tracking-tighter text-arch-black opacity-0 transform scale-90 will-change-transform">
+    <div id="intro-screen" class="fixed inset-0 z-[100] flex items-center justify-center bg-arch-bg-main pointer-events-auto">
+        <div id="intro-logo" class="text-5xl md:text-7xl font-black tracking-tighter text-arch-text-main opacity-0 transform scale-90 will-change-transform">
             RA<span class="text-arch-accent">.</span>studios
         </div>
     </div>
 
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 px-6 md:px-12 bg-transparent">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="#home" id="navbar-logo" class="text-2xl font-black tracking-tighter z-50 relative text-white transition-opacity duration-300">
+            <a href="#home" id="navbar-logo" class="text-2xl font-black tracking-tighter z-50 relative text-arch-text-main transition-opacity duration-300">
                 RA<span class="text-arch-accent">.</span>studios
             </a>
 
             <div class="hidden md:flex space-x-10 text-xs uppercase tracking-[0.2em] font-medium">
-                <a href="#about" class="text-white hover:text-arch-accent transition-colors duration-300">About</a>
-                <a href="#portfolio" class="text-white hover:text-arch-accent transition-colors duration-300">Portfolio</a>
-                <a href="#services" class="text-white hover:text-arch-accent transition-colors duration-300">Services</a>
-                <a href="#philosophy" class="text-white hover:text-arch-accent transition-colors duration-300">Philosophy</a>
-                <a href="#contact" class="text-white hover:text-arch-accent transition-colors duration-300">Contact</a>
+                <a href="#about" class="text-arch-text-main hover:text-arch-accent transition-colors duration-300">About</a>
+                <a href="#portfolio" class="text-arch-text-main hover:text-arch-accent transition-colors duration-300">Portfolio</a>
+                <a href="#services" class="text-arch-text-main hover:text-arch-accent transition-colors duration-300">Services</a>
+                <a href="#philosophy" class="text-arch-text-main hover:text-arch-accent transition-colors duration-300">Philosophy</a>
+                <a href="#contact" class="text-arch-text-main hover:text-arch-accent transition-colors duration-300">Contact</a>
             </div>
 
-            <button id="mobile-menu-btn" class="md:hidden text-white z-50 focus:outline-none relative">
+            <button id="mobile-menu-btn" class="md:hidden text-arch-text-main z-50 focus:outline-none relative">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </div>
 
-        <div id="mobile-menu" class="fixed inset-0 bg-arch-black flex flex-col justify-center items-center space-y-8 text-xl uppercase tracking-[0.2em] font-medium transform translate-x-full transition-transform duration-500 z-40 hidden">
-            <a href="#about" class="mobile-link text-white hover:text-arch-accent transition-colors">About</a>
-            <a href="#portfolio" class="mobile-link text-white hover:text-arch-accent transition-colors">Portfolio</a>
-            <a href="#services" class="mobile-link text-white hover:text-arch-accent transition-colors">Services</a>
-            <a href="#philosophy" class="mobile-link text-white hover:text-arch-accent transition-colors">Philosophy</a>
-            <a href="#contact" class="mobile-link text-white hover:text-arch-accent transition-colors">Contact</a>
+        <div id="mobile-menu" class="fixed inset-0 bg-white flex flex-col justify-center items-center space-y-8 text-xl uppercase tracking-[0.2em] font-medium transform translate-x-full transition-transform duration-500 z-40 hidden">
+            <a href="#about" class="mobile-link text-arch-text-main hover:text-arch-accent transition-colors">About</a>
+            <a href="#portfolio" class="mobile-link text-arch-text-main hover:text-arch-accent transition-colors">Portfolio</a>
+            <a href="#services" class="mobile-link text-arch-text-main hover:text-arch-accent transition-colors">Services</a>
+            <a href="#philosophy" class="mobile-link text-arch-text-main hover:text-arch-accent transition-colors">Philosophy</a>
+            <a href="#contact" class="mobile-link text-arch-text-main hover:text-arch-accent transition-colors">Contact</a>
         </div>
     </nav>
 
-    <header id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+    <header id="home" class="relative h-screen flex items-center justify-center overflow-hidden bg-arch-bg-main">
         
         <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
             <source src="background.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         
-        <div class="absolute inset-0 bg-arch-black bg-opacity-60 z-0"></div> 
+        <!-- Light overlay for the hero video to make dark text readable -->
+        <div class="absolute inset-0 bg-white bg-opacity-60 z-0"></div> 
         
         <div class="relative z-10 text-center px-4 max-w-5xl mx-auto fade-in-section">
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 leading-tight">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 leading-tight text-arch-text-main">
                 CRAFTING <br/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-arch-gray">VISIONARY</span> <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-arch-text-main to-arch-text-muted">VISIONARY</span> <br/>
                 SPACES
             </h1>
-            <p class="text-lg md:text-xl text-arch-gray mb-12 max-w-2xl mx-auto font-light tracking-wide">
+            <p class="text-lg md:text-xl text-arch-text-main mb-12 max-w-2xl mx-auto font-medium tracking-wide">
                 Redefining spatial boundaries with innovative design, sustainable practices, and timeless aesthetics.
             </p>
-            <a href="#portfolio" class="inline-block border border-arch-accent text-arch-accent hover:bg-arch-accent hover:text-arch-black transition-all duration-500 py-4 px-10 text-xs uppercase tracking-[0.2em] font-bold">
+            <a href="#portfolio" class="inline-block border border-arch-accent text-arch-accent hover:bg-arch-accent hover:text-white transition-all duration-500 py-4 px-10 text-xs uppercase tracking-[0.2em] font-bold">
                 View Projects
             </a>
         </div>
         
         <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
-            <a href="#about" class="text-white opacity-50 hover:opacity-100 transition-opacity duration-300">
+            <a href="#about" class="text-arch-text-main opacity-50 hover:opacity-100 transition-opacity duration-300">
                 <i class="fas fa-chevron-down text-xl"></i>
             </a>
         </div>
     </header>
 
-    <section id="about" class="py-32 bg-arch-dark">
+    <section id="about" class="py-32 bg-white">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
             <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
                 <div class="lg:w-1/2 fade-in-section">
@@ -143,25 +145,25 @@
                         <div class="h-[1px] w-12 bg-arch-accent"></div>
                         <h2 class="text-xs text-arch-accent uppercase tracking-[0.2em] font-bold">About Us</h2>
                     </div>
-                    <h3 class="text-3xl md:text-5xl font-bold mb-8 leading-tight">Visionary design for a changing world.</h3>
-                    <p class="text-arch-gray mb-6 leading-relaxed text-lg font-light">
+                    <h3 class="text-3xl md:text-5xl font-bold mb-8 leading-tight text-arch-text-main">Visionary design for a changing world.</h3>
+                    <p class="text-arch-text-muted mb-6 leading-relaxed text-lg font-light">
                         At RA Studios, we believe architecture is not just about building structures; it's about crafting experiences. Driven by modern dynamic design principles, we create spaces that are both deeply functional and visually stunning.
                     </p>
-                    <p class="text-arch-gray mb-12 leading-relaxed text-lg font-light">
+                    <p class="text-arch-text-muted mb-12 leading-relaxed text-lg font-light">
                         Our team of innovative architects and designers brings visionary concepts to reality, utilizing cutting-edge technology and sustainable materials.
                     </p>
                     <div class="grid grid-cols-3 gap-8 border-t border-arch-border pt-8">
                         <div>
-                            <span class="block text-4xl font-bold text-white mb-2">4+</span>
-                            <span class="text-xs uppercase text-arch-gray tracking-wider font-medium">Year Exp</span>
+                            <span class="block text-4xl font-bold text-arch-text-main mb-2">4+</span>
+                            <span class="text-xs uppercase text-arch-text-muted tracking-wider font-medium">Year Exp</span>
                         </div>
                         <div>
-                            <span class="block text-4xl font-bold text-white mb-2">1</span>
-                            <span class="text-xs uppercase text-arch-gray tracking-wider font-medium">Project</span>
+                            <span class="block text-4xl font-bold text-arch-text-main mb-2">1</span>
+                            <span class="text-xs uppercase text-arch-text-muted tracking-wider font-medium">Project</span>
                         </div>
                         <div>
-                            <span class="block text-4xl font-bold text-white mb-2">0</span>
-                            <span class="text-xs uppercase text-arch-gray tracking-wider font-medium">Awards</span>
+                            <span class="block text-4xl font-bold text-arch-text-main mb-2">0</span>
+                            <span class="text-xs uppercase text-arch-text-muted tracking-wider font-medium">Awards</span>
                         </div>
                     </div>
                 </div>
@@ -174,7 +176,7 @@
         </div>
     </section>
 
-    <section id="portfolio" class="py-32 bg-arch-black">
+    <section id="portfolio" class="py-32 bg-arch-bg-main">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
             
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 fade-in-section gap-8">
@@ -183,20 +185,21 @@
                         <div class="h-[1px] w-12 bg-arch-accent"></div>
                         <h2 class="text-xs text-arch-accent uppercase tracking-[0.2em] font-bold">Featured Project</h2>
                     </div>
-                    <h3 class="text-3xl md:text-5xl font-bold">Our Portfolio</h3>
+                    <h3 class="text-3xl md:text-5xl font-bold text-arch-text-main">Our Portfolio</h3>
                 </div>
             </div>
 
             <div class="max-w-5xl mx-auto" id="portfolio-grid">
                 
                 <div class="project-card group cursor-pointer fade-in-section">
-                    <div class="relative project-image-container h-[500px] md:h-[700px] w-full">
+                    <div class="relative project-image-container h-[500px] md:h-[700px] w-full bg-arch-border">
                         <img src="WhatsApp Image 2026-05-17 at 10.34.12 PM.jpeg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop'" alt="The Urban Retreat" class="w-full h-full object-cover">
+                        <!-- Keep overlay dark so white text remains readable over the image -->
                         <div class="project-overlay absolute inset-0 opacity-40 group-hover:opacity-90 transition-opacity duration-500"></div>
                         <div class="absolute bottom-0 left-0 p-8 md:p-12 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 z-10">
                             <p class="text-arch-accent text-xs uppercase tracking-[0.2em] font-bold mb-3">Residential Complex</p>
                             <h4 class="text-3xl md:text-5xl font-bold text-white mb-4">The Urban Retreat</h4>
-                            <p class="text-arch-gray max-w-2xl font-light text-sm md:text-base hidden md:block opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100">
+                            <p class="text-gray-300 max-w-2xl font-light text-sm md:text-base hidden md:block opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100">
                                 A modern exploration of light and volume, this project seamlessly integrates with the natural landscape through dynamic geometry, wood cladding, and concrete elements.
                             </p>
                         </div>
@@ -207,7 +210,7 @@
         </div>
     </section>
 
-    <section id="services" class="py-32 bg-arch-dark">
+    <section id="services" class="py-32 bg-white">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
             <div class="text-center mb-20 fade-in-section">
                 <div class="flex items-center justify-center gap-4 mb-6">
@@ -215,30 +218,30 @@
                     <h2 class="text-xs text-arch-accent uppercase tracking-[0.2em] font-bold">Expertise</h2>
                     <div class="h-[1px] w-8 bg-arch-accent"></div>
                 </div>
-                <h3 class="text-3xl md:text-5xl font-bold">Our Services</h3>
+                <h3 class="text-3xl md:text-5xl font-bold text-arch-text-main">Our Services</h3>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="service-card bg-arch-black p-12 border border-arch-border fade-in-section">
+                <div class="service-card bg-arch-bg-main p-12 border border-arch-border fade-in-section hover:shadow-lg transition-shadow duration-300">
                     <i class="fas fa-compass text-4xl text-arch-accent mb-8"></i>
-                    <h4 class="text-xl font-bold mb-4 text-white">Master Planning</h4>
-                    <p class="text-arch-gray text-sm leading-relaxed font-light">
+                    <h4 class="text-xl font-bold mb-4 text-arch-text-main">Master Planning</h4>
+                    <p class="text-arch-text-muted text-sm leading-relaxed font-light">
                         Strategic planning and urban design for communities and commercial districts. We think on a macro scale to ensure long-term viability.
                     </p>
                 </div>
 
-                <div class="service-card bg-arch-black p-12 border border-arch-border fade-in-section" style="transition-delay: 100ms;">
+                <div class="service-card bg-arch-bg-main p-12 border border-arch-border fade-in-section hover:shadow-lg transition-shadow duration-300" style="transition-delay: 100ms;">
                     <i class="fas fa-building text-4xl text-arch-accent mb-8"></i>
-                    <h4 class="text-xl font-bold mb-4 text-white">Architecture Design</h4>
-                    <p class="text-arch-gray text-sm leading-relaxed font-light">
+                    <h4 class="text-xl font-bold mb-4 text-arch-text-main">Architecture Design</h4>
+                    <p class="text-arch-text-muted text-sm leading-relaxed font-light">
                         From conceptual sketches to final blueprints, we deliver dynamic solutions tailored to our clients, focusing on striking geometry and functionality.
                     </p>
                 </div>
 
-                <div class="service-card bg-arch-black p-12 border border-arch-border fade-in-section" style="transition-delay: 200ms;">
+                <div class="service-card bg-arch-bg-main p-12 border border-arch-border fade-in-section hover:shadow-lg transition-shadow duration-300" style="transition-delay: 200ms;">
                     <i class="fas fa-couch text-4xl text-arch-accent mb-8"></i>
-                    <h4 class="text-xl font-bold mb-4 text-white">Interior Design</h4>
-                    <p class="text-arch-gray text-sm leading-relaxed font-light">
+                    <h4 class="text-xl font-bold mb-4 text-arch-text-main">Interior Design</h4>
+                    <p class="text-arch-text-muted text-sm leading-relaxed font-light">
                         Designing interior spaces that harmonize with the exterior architecture. Our focus is on lighting, spatial flow, and the ultimate user experience.
                     </p>
                 </div>
@@ -246,9 +249,10 @@
         </div>
     </section>
 
+    <!-- Parallax Philosophy (Kept dark specifically for visual contrast break) -->
     <section id="philosophy" class="relative py-40 overflow-hidden">
         <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=2071&auto=format&fit=crop')] bg-cover bg-center bg-fixed transform scale-105"></div>
-        <div class="absolute inset-0 bg-arch-black bg-opacity-80"></div>
+        <div class="absolute inset-0 bg-[#2d2a26] bg-opacity-80"></div>
         <div class="relative z-10 max-w-4xl mx-auto text-center px-6 fade-in-section">
             <i class="fas fa-quote-left text-4xl text-arch-accent mb-10 opacity-60"></i>
             <h3 class="text-2xl md:text-4xl font-light leading-relaxed text-white mb-10">
@@ -258,8 +262,8 @@
         </div>
     </section>
 
-    <section id="contact" class="py-32 bg-arch-black relative">
-        <div class="absolute inset-0 z-0 opacity-5" style="background-image: linear-gradient(#3d3935 1px, transparent 1px), linear-gradient(90deg, #3d3935 1px, transparent 1px); background-size: 50px 50px;"></div>
+    <section id="contact" class="py-32 bg-arch-bg-main relative">
+        <div class="absolute inset-0 z-0 opacity-40" style="background-image: linear-gradient(#e5e0d8 1px, transparent 1px), linear-gradient(90deg, #e5e0d8 1px, transparent 1px); background-size: 50px 50px;"></div>
         
         <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
@@ -268,19 +272,19 @@
                         <div class="h-[1px] w-12 bg-arch-accent"></div>
                         <h2 class="text-xs text-arch-accent uppercase tracking-[0.2em] font-bold">Get In Touch</h2>
                     </div>
-                    <h3 class="text-3xl md:text-5xl font-bold mb-8">Let's discuss your next project.</h3>
-                    <p class="text-arch-gray mb-12 text-lg font-light leading-relaxed">
+                    <h3 class="text-3xl md:text-5xl font-bold mb-8 text-arch-text-main">Let's discuss your next project.</h3>
+                    <p class="text-arch-text-muted mb-12 text-lg font-light leading-relaxed">
                         Whether you have a specific vision or are looking for new ideas, we are ready to collaborate with you.
                     </p>
                     
                     <div class="space-y-8">
                         <div class="flex items-start group">
-                            <div class="w-12 h-12 border border-arch-border flex items-center justify-center mr-6 group-hover:border-arch-accent transition-colors duration-300">
+                            <div class="w-12 h-12 border border-arch-border bg-white flex items-center justify-center mr-6 group-hover:border-arch-accent transition-colors duration-300">
                                 <i class="fas fa-map-marker-alt text-arch-accent"></i>
                             </div>
                             <div class="pt-1">
-                                <h5 class="text-white font-bold mb-1 uppercase tracking-wider text-sm">Studio</h5>
-                                <p class="text-arch-gray text-sm font-light leading-relaxed">
+                                <h5 class="text-arch-text-main font-bold mb-1 uppercase tracking-wider text-sm">Studio</h5>
+                                <p class="text-arch-text-muted text-sm font-light leading-relaxed">
                                     501, Plot 1035, Road no 54<br>
                                     Ayyappa society, Madhapur<br>
                                     Hyderabad, Telangana 500081
@@ -289,50 +293,50 @@
                         </div>
                         
                         <div class="flex items-start group">
-                            <div class="w-12 h-12 border border-arch-border flex items-center justify-center mr-6 group-hover:border-arch-accent transition-colors duration-300">
+                            <div class="w-12 h-12 border border-arch-border bg-white flex items-center justify-center mr-6 group-hover:border-arch-accent transition-colors duration-300">
                                 <i class="fas fa-envelope text-arch-accent"></i>
                             </div>
                             <div class="pt-1">
-                                <h5 class="text-white font-bold mb-1 uppercase tracking-wider text-sm">Email</h5>
-                                <p class="text-arch-gray text-sm font-light">Hello@rastudios.com</p>
+                                <h5 class="text-arch-text-main font-bold mb-1 uppercase tracking-wider text-sm">Email</h5>
+                                <p class="text-arch-text-muted text-sm font-light">Hello@rastudios.com</p>
                             </div>
                         </div>
 
                         <div class="flex items-start group">
-                            <div class="w-12 h-12 border border-arch-border flex items-center justify-center mr-6 group-hover:border-arch-accent transition-colors duration-300">
+                            <div class="w-12 h-12 border border-arch-border bg-white flex items-center justify-center mr-6 group-hover:border-arch-accent transition-colors duration-300">
                                 <i class="fas fa-phone text-arch-accent"></i>
                             </div>
                             <div class="pt-1">
-                                <h5 class="text-white font-bold mb-1 uppercase tracking-wider text-sm">Phone</h5>
-                                <p class="text-arch-gray text-sm font-light">+91 90117 29971</p>
+                                <h5 class="text-arch-text-main font-bold mb-1 uppercase tracking-wider text-sm">Phone</h5>
+                                <p class="text-arch-text-muted text-sm font-light">+91 90117 29971</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-arch-dark p-8 md:p-12 border border-arch-border fade-in-section shadow-2xl relative">
+                <div class="bg-white p-8 md:p-12 border border-arch-border fade-in-section shadow-xl relative">
                     <div class="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-arch-accent"></div>
                     
                     <form id="contactForm" onsubmit="event.preventDefault(); showMessage();">
                         <div class="space-y-8">
                             <div>
-                                <label class="block text-xs uppercase tracking-[0.1em] text-arch-gray mb-3">Name</label>
-                                <input type="text" required class="w-full bg-transparent border-b border-arch-border py-2 text-white focus:outline-none focus:border-arch-accent transition-colors font-light">
+                                <label class="block text-xs uppercase tracking-[0.1em] text-arch-text-muted mb-3">Name</label>
+                                <input type="text" required class="w-full bg-transparent border-b border-arch-border py-2 text-arch-text-main focus:outline-none focus:border-arch-accent transition-colors font-medium">
                             </div>
                             <div>
-                                <label class="block text-xs uppercase tracking-[0.1em] text-arch-gray mb-3">Email</label>
-                                <input type="email" required class="w-full bg-transparent border-b border-arch-border py-2 text-white focus:outline-none focus:border-arch-accent transition-colors font-light">
+                                <label class="block text-xs uppercase tracking-[0.1em] text-arch-text-muted mb-3">Email</label>
+                                <input type="email" required class="w-full bg-transparent border-b border-arch-border py-2 text-arch-text-main focus:outline-none focus:border-arch-accent transition-colors font-medium">
                             </div>
                             <div>
-                                <label class="block text-xs uppercase tracking-[0.1em] text-arch-gray mb-3">Project Details</label>
-                                <textarea rows="4" required class="w-full bg-transparent border-b border-arch-border py-2 text-white focus:outline-none focus:border-arch-accent transition-colors resize-none font-light"></textarea>
+                                <label class="block text-xs uppercase tracking-[0.1em] text-arch-text-muted mb-3">Project Details</label>
+                                <textarea rows="4" required class="w-full bg-transparent border-b border-arch-border py-2 text-arch-text-main focus:outline-none focus:border-arch-accent transition-colors resize-none font-medium"></textarea>
                             </div>
-                            <button type="submit" class="w-full bg-white text-arch-black hover:bg-arch-accent font-bold uppercase tracking-[0.2em] text-xs py-5 transition-colors duration-300 mt-4">
+                            <button type="submit" class="w-full bg-arch-text-main text-white hover:bg-arch-accent font-bold uppercase tracking-[0.2em] text-xs py-5 transition-colors duration-300 mt-4">
                                 Send Message
                             </button>
                         </div>
                     </form>
-                    <div id="successMessage" class="hidden mt-8 p-4 bg-green-900/20 border border-green-800 text-green-400 text-sm text-center font-light">
+                    <div id="successMessage" class="hidden mt-8 p-4 bg-green-50 border border-green-200 text-green-700 text-sm text-center font-medium">
                         Thank you. Your message has been sent to RA Studios.
                     </div>
                 </div>
@@ -340,20 +344,20 @@
         </div>
     </section>
 
-    <footer class="bg-[#171514] py-12 border-t border-arch-border">
+    <footer class="bg-arch-bg-alt py-12 border-t border-arch-border">
         <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="text-2xl font-black tracking-tighter text-white">
+            <div class="text-2xl font-black tracking-tighter text-arch-text-main">
                 RA<span class="text-arch-accent">.</span>studios
             </div>
             
-            <div class="text-arch-gray text-sm font-light">
+            <div class="text-arch-text-muted text-sm font-light">
                 &copy; 2026 RA Studios. All rights reserved.
             </div>
             
             <div class="flex space-x-6">
-                <a href="#" class="text-arch-gray hover:text-white transition-colors duration-300"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-arch-gray hover:text-white transition-colors duration-300"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="text-arch-gray hover:text-white transition-colors duration-300"><i class="fab fa-houzz"></i></a>
+                <a href="#" class="text-arch-text-muted hover:text-arch-text-main transition-colors duration-300"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-arch-text-muted hover:text-arch-text-main transition-colors duration-300"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="text-arch-text-muted hover:text-arch-text-main transition-colors duration-300"><i class="fab fa-houzz"></i></a>
             </div>
         </div>
     </footer>
@@ -388,10 +392,11 @@
 
                 introLogo.style.transition = 'transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), color 1.2s cubic-bezier(0.77, 0, 0.175, 1)';
                 introLogo.style.transform = `translate(${dX}px, ${dY}px) scale(${scale})`;
-                introLogo.style.color = '#ffffff'; 
+                // Text stays dark in light theme, so we removed the color change to white
+                introLogo.style.color = '#2d2a26'; 
                 
                 introScreen.style.transition = 'background-color 1.2s cubic-bezier(0.77, 0, 0.175, 1)';
-                introScreen.style.backgroundColor = 'rgba(255, 255, 255, 0)';
+                introScreen.style.backgroundColor = 'rgba(250, 249, 246, 0)';
 
                 setTimeout(() => {
                     navbarLogo.style.opacity = '1';
@@ -405,11 +410,11 @@
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                navbar.classList.add('bg-arch-black', 'bg-opacity-95', 'backdrop-blur-sm', 'shadow-lg');
+                navbar.classList.add('bg-white', 'bg-opacity-95', 'backdrop-blur-sm', 'shadow-sm');
                 navbar.classList.remove('bg-transparent', 'py-6');
                 navbar.classList.add('py-4');
             } else {
-                navbar.classList.remove('bg-arch-black', 'bg-opacity-95', 'backdrop-blur-sm', 'shadow-lg', 'py-4');
+                navbar.classList.remove('bg-white', 'bg-opacity-95', 'backdrop-blur-sm', 'shadow-sm', 'py-4');
                 navbar.classList.add('bg-transparent', 'py-6');
             }
         });
