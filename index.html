@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RA Studios | Modern Dynamic Architecture</title>
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;700;900&display=swap" rel="stylesheet">
     
-    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -69,36 +66,22 @@
         .project-card img {
             transition: transform 1.5s ease;
         }
-
-        @keyframes subtleZoom {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .animate-bg {
-            animation: subtleZoom 30s infinite alternate ease-in-out;
-        }
     </style>
 </head>
 <body class="antialiased selection:bg-arch-accent selection:text-black">
 
-    <!-- Intro Preloader -->
     <div id="intro-screen" class="fixed inset-0 z-[100] flex items-center justify-center bg-white pointer-events-auto">
-        <div id="intro-logo" class="text-5xl md:text-7xl font-black tracking-tighter uppercase text-arch-black opacity-0 transform scale-90 will-change-transform">
-            RA<span class="text-arch-accent">.</span>Studios
+        <div id="intro-logo" class="text-5xl md:text-7xl font-black tracking-tighter text-arch-black opacity-0 transform scale-90 will-change-transform">
+            RA<span class="text-arch-accent">.</span>studios
         </div>
     </div>
 
-    <!-- Navigation -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 px-6 md:px-12 bg-transparent">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <!-- Logo -->
-            <a href="#home" id="navbar-logo" class="text-2xl font-black tracking-tighter uppercase z-50 relative text-white transition-opacity duration-300">
-                RA<span class="text-arch-accent">.</span>Studios
+            <a href="#home" id="navbar-logo" class="text-2xl font-black tracking-tighter z-50 relative text-white transition-opacity duration-300">
+                RA<span class="text-arch-accent">.</span>studios
             </a>
 
-            <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-10 text-xs uppercase tracking-[0.2em] font-medium">
                 <a href="#about" class="text-white hover:text-arch-accent transition-colors duration-300">About</a>
                 <a href="#portfolio" class="text-white hover:text-arch-accent transition-colors duration-300">Portfolio</a>
@@ -107,13 +90,11 @@
                 <a href="#contact" class="text-white hover:text-arch-accent transition-colors duration-300">Contact</a>
             </div>
 
-            <!-- Mobile Menu Button -->
             <button id="mobile-menu-btn" class="md:hidden text-white z-50 focus:outline-none relative">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </div>
 
-        <!-- Mobile Menu Overlay -->
         <div id="mobile-menu" class="fixed inset-0 bg-arch-black flex flex-col justify-center items-center space-y-8 text-xl uppercase tracking-[0.2em] font-medium transform translate-x-full transition-transform duration-500 z-40 hidden">
             <a href="#about" class="mobile-link text-white hover:text-arch-accent transition-colors">About</a>
             <a href="#portfolio" class="mobile-link text-white hover:text-arch-accent transition-colors">Portfolio</a>
@@ -123,13 +104,14 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <header id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
-        <!-- Animated Background Wrapper -->
-        <div class="absolute inset-0 z-0">
-            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center animate-bg"></div>
-        </div>
-        <div class="absolute inset-0 bg-black bg-opacity-70 z-0"></div> <!-- Dark overlay -->
+        
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+            <source src="WhatsApp Video 2026-05-18 at 5.59.28 PM.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <div class="absolute inset-0 bg-black bg-opacity-70 z-0"></div> 
         
         <div class="relative z-10 text-center px-4 max-w-5xl mx-auto fade-in-section">
             <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 leading-tight">
@@ -145,7 +127,6 @@
             </a>
         </div>
         
-        <!-- Scroll indicator -->
         <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
             <a href="#about" class="text-white opacity-50 hover:opacity-100 transition-opacity duration-300">
                 <i class="fas fa-chevron-down text-xl"></i>
@@ -153,7 +134,6 @@
         </div>
     </header>
 
-    <!-- About Section -->
     <section id="about" class="py-32 bg-arch-dark">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
             <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
@@ -186,7 +166,6 @@
                 </div>
                 <div class="lg:w-1/2 relative fade-in-section w-full">
                     <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1931&auto=format&fit=crop" alt="Architecture Model" class="w-full h-[600px] object-cover grayscale hover:grayscale-0 transition-all duration-700">
-                    <!-- Accent Box -->
                     <div class="absolute -bottom-6 -right-6 w-32 h-32 border-b-2 border-r-2 border-arch-accent hidden md:block"></div>
                     <div class="absolute -top-6 -left-6 w-32 h-32 border-t-2 border-l-2 border-arch-accent hidden md:block"></div>
                 </div>
@@ -194,11 +173,9 @@
         </div>
     </section>
 
-    <!-- Portfolio Section -->
     <section id="portfolio" class="py-32 bg-arch-black">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
             
-            <!-- Section Header -->
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 fade-in-section gap-8">
                 <div>
                     <div class="flex items-center gap-4 mb-6">
@@ -209,10 +186,8 @@
                 </div>
             </div>
 
-            <!-- Single Project Feature -->
             <div class="max-w-5xl mx-auto" id="portfolio-grid">
                 
-                <!-- Project 1: Featured -->
                 <div class="project-card group cursor-pointer fade-in-section">
                     <div class="relative project-image-container h-[500px] md:h-[700px] w-full">
                         <img src="WhatsApp Image 2026-05-17 at 10.34.12 PM.jpeg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop'" alt="The Urban Retreat" class="w-full h-full object-cover">
@@ -231,7 +206,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
     <section id="services" class="py-32 bg-arch-dark">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
             <div class="text-center mb-20 fade-in-section">
@@ -244,7 +218,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
                 <div class="service-card bg-arch-black p-12 border border-gray-800 fade-in-section">
                     <i class="fas fa-compass text-4xl text-arch-accent mb-8"></i>
                     <h4 class="text-xl font-bold mb-4 text-white">Master Planning</h4>
@@ -253,7 +226,6 @@
                     </p>
                 </div>
 
-                <!-- Service 2 -->
                 <div class="service-card bg-arch-black p-12 border border-gray-800 fade-in-section" style="transition-delay: 100ms;">
                     <i class="fas fa-building text-4xl text-arch-accent mb-8"></i>
                     <h4 class="text-xl font-bold mb-4 text-white">Architecture Design</h4>
@@ -262,7 +234,6 @@
                     </p>
                 </div>
 
-                <!-- Service 3 -->
                 <div class="service-card bg-arch-black p-12 border border-gray-800 fade-in-section" style="transition-delay: 200ms;">
                     <i class="fas fa-couch text-4xl text-arch-accent mb-8"></i>
                     <h4 class="text-xl font-bold mb-4 text-white">Interior Design</h4>
@@ -274,7 +245,6 @@
         </div>
     </section>
 
-    <!-- Philosophy Section (Parallax Style) -->
     <section id="philosophy" class="relative py-40 overflow-hidden">
         <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=2071&auto=format&fit=crop')] bg-cover bg-center bg-fixed transform scale-105"></div>
         <div class="absolute inset-0 bg-black bg-opacity-80"></div>
@@ -287,9 +257,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="py-32 bg-arch-black relative">
-        <!-- Subtle background grid pattern -->
         <div class="absolute inset-0 z-0 opacity-5" style="background-image: linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px); background-size: 50px 50px;"></div>
         
         <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
@@ -342,7 +310,6 @@
                 </div>
 
                 <div class="bg-arch-dark p-8 md:p-12 border border-gray-800 fade-in-section shadow-2xl relative">
-                    <!-- Corner accent -->
                     <div class="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-arch-accent"></div>
                     
                     <form id="contactForm" onsubmit="event.preventDefault(); showMessage();">
@@ -372,11 +339,10 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-black py-12 border-t border-gray-900">
         <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="text-2xl font-black tracking-tighter uppercase text-white">
-                RA<span class="text-arch-accent">.</span>
+            <div class="text-2xl font-black tracking-tighter text-white">
+                RA<span class="text-arch-accent">.</span>studios
             </div>
             
             <div class="text-arch-gray text-sm font-light">
@@ -391,7 +357,6 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Interactions -->
     <script>
         // Smooth Premium Intro Animation (Move to top-left)
         window.addEventListener('load', () => {
