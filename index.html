@@ -20,10 +20,11 @@
                         sans: ['Inter', 'sans-serif'],
                     },
                     colors: {
-                        'arch-black': '#0a0a0a',
-                        'arch-dark': '#121212',
-                        'arch-gray': '#888888',
-                        'arch-accent': '#c0a062', // Sophisticated metallic/gold
+                        'arch-black': '#1e1c1a', // Rich, warm dark umber (replaces harsh black)
+                        'arch-dark': '#2a2724',  // Deep warm taupe
+                        'arch-gray': '#a8a39d',  // Warm muted gray for text
+                        'arch-accent': '#d4af37', // Classic architectural gold (slightly brighter to attract)
+                        'arch-border': '#3d3935', // Warm border color
                     }
                 }
             }
@@ -33,7 +34,7 @@
     <style>
         /* Custom Styles & Animations */
         body {
-            background-color: #0a0a0a;
+            background-color: #1e1c1a;
             color: #ffffff;
             overflow-x: hidden;
         }
@@ -51,7 +52,7 @@
         }
 
         .project-card:hover .project-overlay {
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 100%);
+            background: linear-gradient(to top, rgba(30,28,26,0.9) 0%, rgba(30,28,26,0.1) 100%);
         }
 
         .project-image-container {
@@ -68,9 +69,9 @@
         }
     </style>
 </head>
-<body class="antialiased selection:bg-arch-accent selection:text-black">
+<body class="antialiased selection:bg-arch-accent selection:text-white">
 
-    <div id="intro-screen" class="fixed inset-0 z-[100] flex items-center justify-center bg-white pointer-events-auto">
+    <div id="intro-screen" class="fixed inset-0 z-[100] flex items-center justify-center bg-[#f4f0ec] pointer-events-auto">
         <div id="intro-logo" class="text-5xl md:text-7xl font-black tracking-tighter text-arch-black opacity-0 transform scale-90 will-change-transform">
             RA<span class="text-arch-accent">.</span>studios
         </div>
@@ -111,7 +112,7 @@
             Your browser does not support the video tag.
         </video>
         
-        <div class="absolute inset-0 bg-black bg-opacity-70 z-0"></div> 
+        <div class="absolute inset-0 bg-arch-black bg-opacity-60 z-0"></div> 
         
         <div class="relative z-10 text-center px-4 max-w-5xl mx-auto fade-in-section">
             <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 leading-tight">
@@ -149,7 +150,7 @@
                     <p class="text-arch-gray mb-12 leading-relaxed text-lg font-light">
                         Our team of innovative architects and designers brings visionary concepts to reality, utilizing cutting-edge technology and sustainable materials.
                     </p>
-                    <div class="grid grid-cols-3 gap-8 border-t border-gray-800 pt-8">
+                    <div class="grid grid-cols-3 gap-8 border-t border-arch-border pt-8">
                         <div>
                             <span class="block text-4xl font-bold text-white mb-2">4+</span>
                             <span class="text-xs uppercase text-arch-gray tracking-wider font-medium">Year Exp</span>
@@ -191,7 +192,7 @@
                 <div class="project-card group cursor-pointer fade-in-section">
                     <div class="relative project-image-container h-[500px] md:h-[700px] w-full">
                         <img src="WhatsApp Image 2026-05-17 at 10.34.12 PM.jpeg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop'" alt="The Urban Retreat" class="w-full h-full object-cover">
-                        <div class="project-overlay absolute inset-0 opacity-40 group-hover:opacity-80 transition-opacity duration-500"></div>
+                        <div class="project-overlay absolute inset-0 opacity-40 group-hover:opacity-90 transition-opacity duration-500"></div>
                         <div class="absolute bottom-0 left-0 p-8 md:p-12 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 z-10">
                             <p class="text-arch-accent text-xs uppercase tracking-[0.2em] font-bold mb-3">Residential Complex</p>
                             <h4 class="text-3xl md:text-5xl font-bold text-white mb-4">The Urban Retreat</h4>
@@ -218,7 +219,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="service-card bg-arch-black p-12 border border-gray-800 fade-in-section">
+                <div class="service-card bg-arch-black p-12 border border-arch-border fade-in-section">
                     <i class="fas fa-compass text-4xl text-arch-accent mb-8"></i>
                     <h4 class="text-xl font-bold mb-4 text-white">Master Planning</h4>
                     <p class="text-arch-gray text-sm leading-relaxed font-light">
@@ -226,7 +227,7 @@
                     </p>
                 </div>
 
-                <div class="service-card bg-arch-black p-12 border border-gray-800 fade-in-section" style="transition-delay: 100ms;">
+                <div class="service-card bg-arch-black p-12 border border-arch-border fade-in-section" style="transition-delay: 100ms;">
                     <i class="fas fa-building text-4xl text-arch-accent mb-8"></i>
                     <h4 class="text-xl font-bold mb-4 text-white">Architecture Design</h4>
                     <p class="text-arch-gray text-sm leading-relaxed font-light">
@@ -234,7 +235,7 @@
                     </p>
                 </div>
 
-                <div class="service-card bg-arch-black p-12 border border-gray-800 fade-in-section" style="transition-delay: 200ms;">
+                <div class="service-card bg-arch-black p-12 border border-arch-border fade-in-section" style="transition-delay: 200ms;">
                     <i class="fas fa-couch text-4xl text-arch-accent mb-8"></i>
                     <h4 class="text-xl font-bold mb-4 text-white">Interior Design</h4>
                     <p class="text-arch-gray text-sm leading-relaxed font-light">
@@ -247,7 +248,7 @@
 
     <section id="philosophy" class="relative py-40 overflow-hidden">
         <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=2071&auto=format&fit=crop')] bg-cover bg-center bg-fixed transform scale-105"></div>
-        <div class="absolute inset-0 bg-black bg-opacity-80"></div>
+        <div class="absolute inset-0 bg-arch-black bg-opacity-80"></div>
         <div class="relative z-10 max-w-4xl mx-auto text-center px-6 fade-in-section">
             <i class="fas fa-quote-left text-4xl text-arch-accent mb-10 opacity-60"></i>
             <h3 class="text-2xl md:text-4xl font-light leading-relaxed text-white mb-10">
@@ -258,7 +259,7 @@
     </section>
 
     <section id="contact" class="py-32 bg-arch-black relative">
-        <div class="absolute inset-0 z-0 opacity-5" style="background-image: linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px); background-size: 50px 50px;"></div>
+        <div class="absolute inset-0 z-0 opacity-5" style="background-image: linear-gradient(#3d3935 1px, transparent 1px), linear-gradient(90deg, #3d3935 1px, transparent 1px); background-size: 50px 50px;"></div>
         
         <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
@@ -274,7 +275,7 @@
                     
                     <div class="space-y-8">
                         <div class="flex items-start group">
-                            <div class="w-12 h-12 border border-gray-800 flex items-center justify-center mr-6 group-hover:border-arch-accent transition-colors duration-300">
+                            <div class="w-12 h-12 border border-arch-border flex items-center justify-center mr-6 group-hover:border-arch-accent transition-colors duration-300">
                                 <i class="fas fa-map-marker-alt text-arch-accent"></i>
                             </div>
                             <div class="pt-1">
@@ -288,7 +289,7 @@
                         </div>
                         
                         <div class="flex items-start group">
-                            <div class="w-12 h-12 border border-gray-800 flex items-center justify-center mr-6 group-hover:border-arch-accent transition-colors duration-300">
+                            <div class="w-12 h-12 border border-arch-border flex items-center justify-center mr-6 group-hover:border-arch-accent transition-colors duration-300">
                                 <i class="fas fa-envelope text-arch-accent"></i>
                             </div>
                             <div class="pt-1">
@@ -298,7 +299,7 @@
                         </div>
 
                         <div class="flex items-start group">
-                            <div class="w-12 h-12 border border-gray-800 flex items-center justify-center mr-6 group-hover:border-arch-accent transition-colors duration-300">
+                            <div class="w-12 h-12 border border-arch-border flex items-center justify-center mr-6 group-hover:border-arch-accent transition-colors duration-300">
                                 <i class="fas fa-phone text-arch-accent"></i>
                             </div>
                             <div class="pt-1">
@@ -309,22 +310,22 @@
                     </div>
                 </div>
 
-                <div class="bg-arch-dark p-8 md:p-12 border border-gray-800 fade-in-section shadow-2xl relative">
+                <div class="bg-arch-dark p-8 md:p-12 border border-arch-border fade-in-section shadow-2xl relative">
                     <div class="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-arch-accent"></div>
                     
                     <form id="contactForm" onsubmit="event.preventDefault(); showMessage();">
                         <div class="space-y-8">
                             <div>
                                 <label class="block text-xs uppercase tracking-[0.1em] text-arch-gray mb-3">Name</label>
-                                <input type="text" required class="w-full bg-transparent border-b border-gray-700 py-2 text-white focus:outline-none focus:border-arch-accent transition-colors font-light">
+                                <input type="text" required class="w-full bg-transparent border-b border-arch-border py-2 text-white focus:outline-none focus:border-arch-accent transition-colors font-light">
                             </div>
                             <div>
                                 <label class="block text-xs uppercase tracking-[0.1em] text-arch-gray mb-3">Email</label>
-                                <input type="email" required class="w-full bg-transparent border-b border-gray-700 py-2 text-white focus:outline-none focus:border-arch-accent transition-colors font-light">
+                                <input type="email" required class="w-full bg-transparent border-b border-arch-border py-2 text-white focus:outline-none focus:border-arch-accent transition-colors font-light">
                             </div>
                             <div>
                                 <label class="block text-xs uppercase tracking-[0.1em] text-arch-gray mb-3">Project Details</label>
-                                <textarea rows="4" required class="w-full bg-transparent border-b border-gray-700 py-2 text-white focus:outline-none focus:border-arch-accent transition-colors resize-none font-light"></textarea>
+                                <textarea rows="4" required class="w-full bg-transparent border-b border-arch-border py-2 text-white focus:outline-none focus:border-arch-accent transition-colors resize-none font-light"></textarea>
                             </div>
                             <button type="submit" class="w-full bg-white text-arch-black hover:bg-arch-accent font-bold uppercase tracking-[0.2em] text-xs py-5 transition-colors duration-300 mt-4">
                                 Send Message
@@ -339,7 +340,7 @@
         </div>
     </section>
 
-    <footer class="bg-black py-12 border-t border-gray-900">
+    <footer class="bg-[#171514] py-12 border-t border-arch-border">
         <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="text-2xl font-black tracking-tighter text-white">
                 RA<span class="text-arch-accent">.</span>studios
@@ -358,66 +359,57 @@
     </footer>
 
     <script>
-        // Smooth Premium Intro Animation (Move to top-left)
+        // Smooth Premium Intro Animation
         window.addEventListener('load', () => {
             const introScreen = document.getElementById('intro-screen');
             const introLogo = document.getElementById('intro-logo');
             const navbarLogo = document.getElementById('navbar-logo');
 
-            // 1. Hide the real navbar logo initially
             navbarLogo.style.opacity = '0';
             
-            // 2. Fade in the big center logo smoothly
             setTimeout(() => {
                 introLogo.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
                 introLogo.style.opacity = '1';
                 introLogo.style.transform = 'scale(1)';
-            }, 100); // Tiny delay to ensure browser paints initial state
+            }, 100); 
 
-            // 3. Wait, then calculate exact positions and fly to the top left
             setTimeout(() => {
-                // Get exact dimensions and coordinates on the user's specific screen
                 const targetRect = navbarLogo.getBoundingClientRect();
                 const introRect = introLogo.getBoundingClientRect();
 
-                // Calculate center points to move accurately
                 const targetCenterX = targetRect.left + targetRect.width / 2;
                 const targetCenterY = targetRect.top + targetRect.height / 2;
                 const introCenterX = introRect.left + introRect.width / 2;
                 const introCenterY = introRect.top + introRect.height / 2;
 
-                // Calculate how far to move (Delta X and Y) and how much to shrink (Scale)
                 const dX = targetCenterX - introCenterX;
                 const dY = targetCenterY - introCenterY;
                 const scale = targetRect.width / introRect.width;
 
-                // Apply the flight animation
                 introLogo.style.transition = 'transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), color 1.2s cubic-bezier(0.77, 0, 0.175, 1)';
                 introLogo.style.transform = `translate(${dX}px, ${dY}px) scale(${scale})`;
-                introLogo.style.color = '#ffffff'; // Change text to white during flight
+                introLogo.style.color = '#ffffff'; 
                 
-                // Fade out the white background simultaneously
                 introScreen.style.transition = 'background-color 1.2s cubic-bezier(0.77, 0, 0.175, 1)';
                 introScreen.style.backgroundColor = 'rgba(255, 255, 255, 0)';
 
-                // 4. Clean up: Reveal real logo, hide the intro overlay entirely
                 setTimeout(() => {
                     navbarLogo.style.opacity = '1';
                     introScreen.style.display = 'none';
-                }, 1200); // Wait for the 1.2s animation to finish
+                }, 1200); 
 
-            }, 1800); // Wait 1.8 seconds looking at the center logo before flying
+            }, 1800); 
         });
 
         // Navbar Background Change on Scroll
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                navbar.classList.add('bg-black', 'bg-opacity-90', 'backdrop-blur-sm', 'shadow-lg');
+                navbar.classList.add('bg-arch-black', 'bg-opacity-95', 'backdrop-blur-sm', 'shadow-lg');
                 navbar.classList.remove('bg-transparent', 'py-6');
                 navbar.classList.add('py-4');
             } else {
-                navbar.classList.remove('bg-black', 'bg-opacity-90', 'backdrop-blur-sm', 'shadow-lg', 'py-4');
+                navbar.classList.remove('bg-arch-black', 'bg-opacity-95', 'backdrop-blur-sm', 'shadow-lg', 'py-4');
                 navbar.classList.add('bg-transparent', 'py-6');
             }
         });
@@ -432,7 +424,6 @@
             isMenuOpen = !isMenuOpen;
             if (isMenuOpen) {
                 mobileMenu.classList.remove('hidden');
-                // Small delay to allow display:block to apply before animating transform
                 setTimeout(() => {
                     mobileMenu.classList.remove('translate-x-full');
                 }, 10);
@@ -441,7 +432,7 @@
                 mobileMenu.classList.add('translate-x-full');
                 setTimeout(() => {
                     mobileMenu.classList.add('hidden');
-                }, 500); // Wait for transition
+                }, 500); 
                 mobileMenuBtn.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
             }
         }
@@ -449,7 +440,7 @@
         mobileMenuBtn.addEventListener('click', toggleMenu);
         mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
 
-        // Intersection Observer for Scroll Animations (Fade in)
+        // Intersection Observer for Scroll Animations
         const observerOptions = {
             root: null,
             rootMargin: '0px',
@@ -460,7 +451,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target); // Stop observing once it's visible
+                    observer.unobserve(entry.target); 
                 }
             });
         }, observerOptions);
